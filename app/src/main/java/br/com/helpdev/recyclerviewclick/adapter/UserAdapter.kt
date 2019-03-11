@@ -32,6 +32,7 @@ class UserAdapter(
 
     private fun createOnClickListener(user: User): View.OnClickListener {
         return View.OnClickListener { view ->
+            //Here, We call the functional interface.
             onClickItem(view, user)
         }
     }

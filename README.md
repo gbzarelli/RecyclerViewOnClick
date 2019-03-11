@@ -19,6 +19,7 @@ This project uses libraries of the JetPack/Ktx. See: [build.gradle](app/build.gr
 
 ``` kotlin
     class UserAdapter(
+        //I decided to create a functional interface instead of a new class.
         val onClickItem: (view: View, user: User) -> Unit
     ) : ListAdapter<User, UserViewHolder>(UserDiffCallback()) {
 ```
@@ -29,6 +30,13 @@ This project uses libraries of the JetPack/Ktx. See: [build.gradle](app/build.gr
  override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         getItem(position)?.let { user ->
             holder.bind(user, createOnClickListener(user))
+        }
+    }
+    
+ private fun createOnClickListener(user: User): View.OnClickListener {
+        return View.OnClickListener { view ->
+            //Here, We call the functional interface.
+            onClickItem(view, user)
         }
     }
 ```
