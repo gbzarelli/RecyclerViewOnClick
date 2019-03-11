@@ -44,7 +44,10 @@ This project uses libraries of the JetPack/Ktx. See: [build.gradle](app/build.gr
 - On bind method of the holder set the onClickListener in your itemView:
 
 ``` kotlin
-    itemView.setOnClickListener(createOnClickListener)
+    fun bind(user: User, onClickListener: View.OnClickListener) {
+        // [...] Binding values...
+        itemView.setOnClickListener(onClickListener)
+    }
 ``` 
 
 - At last, implement in your Activity:

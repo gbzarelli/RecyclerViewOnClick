@@ -52,8 +52,8 @@ class UserDiffCallback : DiffUtil.ItemCallback<User>() {
 class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private var textViewName: TextView = view.findViewById(R.id.name)
 
-    fun bind(user: User, createOnClickListener: View.OnClickListener) {
+    fun bind(user: User, onClickListener: View.OnClickListener) {
         textViewName.text = user.name
-        itemView.setOnClickListener(createOnClickListener)
+        itemView.setOnClickListener(onClickListener)
     }
 }
